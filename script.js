@@ -19,6 +19,8 @@ function weatherDisplay(response) {
   );
   let dateConversion = document.querySelector("#date");
   dateConversion.innerHTML = dateTime(response.data.dt * 1000);
+
+  celsiusTemperature = response.data.main.temp;
 }
 
 function searchCity(event) {
@@ -54,16 +56,22 @@ function dateTime(cityDateTime) {
 
   return `${day} ${hours}:${minutes}`;
 }
-/*
-function degreeFahrenheit(event) {
+let celsiusLink = document.querySelector("#degreecelcius");
+celsiusLink.addEventListener("click", showCelsiusTemp);
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+
+function showFahrenheitTemp(event) {
   event.preventDefault();
-  let fahrenheitConversion = document.querySelector("#temps");
-
-  let fahrenheitTemp = (unitConversion * 9) / 5 + 32;
-  fahrenheitConversion.innerHTML = Math.round(fahrenheitTemp);
+  let temperatureElement = document.querySelector("#temps");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", degreeFahrenheit);
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temps");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
 
-let unitConversion = null;
-*/
+let celsiusTemperature = null;
