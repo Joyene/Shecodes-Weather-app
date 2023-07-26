@@ -56,7 +56,7 @@ function dateTime(cityDateTime) {
 
   return `${day} ${hours}:${minutes}`;
 }
-let celsiusLink = document.querySelector("#celcius");
+let celsiusLink = document.querySelector("#celcius-degree");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
