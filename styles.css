@@ -47,7 +47,7 @@ body {
 .weather_conversion {
   display: inline;
 }
-#degree_celcius {
+#celcius {
   position: relative;
   top: -35px;
 }
